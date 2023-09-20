@@ -1,4 +1,4 @@
-Certainly, here are all the SQL queries from your project's README.md:
+
 
 ```markdown
 # SQL Data Analysis and Reporting System
