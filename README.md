@@ -246,4 +246,104 @@ FROM
    PRODUCTS 
 WHERE
    LIST_PRICE = 
-  
+   (
+      SELECT
+         MAX(MAX_PRICE) 
+      FROM
+         (
+            SELECT
+               MAX(LIST_PRICE) AS MAX_PRICE 
+            FROM
+               PRODUCTS 
+            GROUP BY
+               PRODUCT_ID 
+         )
+   )
+   OR LIST_PRICE = 
+   (
+      SELECT
+         MIN(MIN_PRICE) 
+      FROM
+         (
+            SELECT
+               MIN(LIST_PRICE) AS MIN_PRICE 
+            FROM
+               PRODUCTS 
+            GROUP BY
+               PRODUCT_ID 
+         )
+   )
+;
+
+```markdown
+### Solution 10: Customer Purchase Amount Statistics
+
+```sql
+-- Number of customers with total purchase amount over the average
+SELECT
+   COUNT(*) AS "Customers with Purchase Amount > Average"
+FROM
+   (
+      SELECT
+         c.customer_id 
+      FROM
+         customers c 
+         INNER JOIN
+            orders o 
+            ON c.customer_id = o.customer_id 
+         INNER JOIN
+            order_items oi 
+            ON oi.order_id = o.order_id 
+      GROUP BY
+         c.customer_id 
+      HAVING
+         SUM(oi.quantity * oi.unit_price) > (
+         SELECT
+            AVG(oi.quantity * oi.unit_price) 
+         FROM
+            order_items oi
+         )
+   ) AS over_avg
+
+UNION ALL
+
+-- Number of customers with total purchase amount below the average
+SELECT
+   COUNT(*) AS "Customers with Purchase Amount < Average"
+FROM
+   (
+      SELECT
+         c.customer_id 
+      FROM
+         customers c 
+         INNER JOIN
+            orders o 
+            ON c.customer_id = o.customer_id 
+         INNER JOIN
+            order_items oi 
+            ON oi.order_id = o.order_id 
+      GROUP BY
+         c.customer_id 
+      HAVING
+         SUM(oi.quantity * oi.unit_price) < (
+         SELECT
+            AVG(oi.quantity * oi.unit_price) 
+         FROM
+            order_items oi
+         )
+   ) AS under_avg
+
+UNION ALL
+
+-- Total number of customers
+SELECT
+   COUNT(*) AS "Total Customers"
+FROM
+   customers;
+```
+
+These queries provide statistics on customer purchase amounts, including the number of customers with purchase amounts above and below the average, as well as the total number of customers.
+
+## Contributing
+
+Contributions are welcome! If you have any SQL solutions or improvements to existing ones, please feel free to submit a pull request. Make sure to follow the project's coding standards and documentation guidelines.
