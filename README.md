@@ -1,5 +1,5 @@
 
-<img width="899" alt="Tables" src="https://github.com/iOSByDarpan/SQLDataAnalysis/assets/112990024/bb2f4cc2-5e5b-4b1f-a1be-dc0ec636a60a">
+<img width="500" alt="Tables" src="https://github.com/iOSByDarpan/SQLDataAnalysis/assets/112990024/bb2f4cc2-5e5b-4b1f-a1be-dc0ec636a60a">
 
 ```markdown
 # SQL Data Analysis and Reporting System
