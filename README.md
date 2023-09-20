@@ -4,7 +4,8 @@
 # SQL Data Analysis and Reporting System
 
 # with url
-![alt text](/Users/darpanchoudhary128/Desktop/SQLDataAnalysis/Tables.png)
+
+![Table Diagram](Tables.png)
 
 
 ## Table of Contents
