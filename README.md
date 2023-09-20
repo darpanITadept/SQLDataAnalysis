@@ -3,7 +3,6 @@ Certainly, here are all the SQL queries from your project's README.md:
 ```markdown
 # SQL Data Analysis and Reporting System
 
-![Project Logo](project_logo.png)
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -274,8 +273,8 @@ WHERE
          )
    )
 ;
+```
 
-```markdown
 ### Solution 10: Customer Purchase Amount Statistics
 
 ```sql
