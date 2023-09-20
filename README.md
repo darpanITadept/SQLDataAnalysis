@@ -5,7 +5,7 @@
 
 # with url
 
-![Table Diagram](Tables.png)
+<img width="899" alt="Tables" src="https://github.com/iOSByDarpan/SQLDataAnalysis/assets/112990024/bb2f4cc2-5e5b-4b1f-a1be-dc0ec636a60a">
 
 
 ## Table of Contents
